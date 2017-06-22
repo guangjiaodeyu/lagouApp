@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>lagouApp</title>
+    <link rel="stylesheet" href="css/index.css">
+
+
+</head>
+<body>
+
+
+<div ui-view></div>
+
+
+
+</body>
+<!--设置页面默认字体大小-->
+<script>
+    var font = window.screen.width / 10 + 'px';
+    document.getElementsByTagName('html')[0].style.fontSize = font;
+</script>
+<script src="lib/angular/angular.min.js"></script>
+<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="js/index.js"></script>
+</html>
