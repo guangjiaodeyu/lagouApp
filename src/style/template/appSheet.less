@@ -1,0 +1,43 @@
+.app-sheet{
+  position: fixed;
+  .t(0);
+  .r(0);
+  .b(0);
+  .l(0);
+  background-color: rgba(0,0,0,.2);
+
+  .wrap{
+
+    position: fixed;
+    .r(8);
+    .b(8);
+    .l(8);
+    color: @sheetColor;
+
+    ul{
+      margin-bottom: 8px;
+      border-radius: 5px;
+      overflow: scroll;
+      max-height: 150px;
+
+    }
+
+    li,button{
+      background-color: @bodyBgColor;
+      .fs(16);
+      width: 100%;
+      .h(50);
+      .lh(50);
+      border-bottom: 1px solid @listLineColor;
+
+    }
+
+    button{
+      background-color: @bodyBgColor;
+      border-style:none;
+      outline-width: 0;
+      border-radius: 5px;
+    }
+
+  }
+}

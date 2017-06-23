@@ -2,8 +2,10 @@
  * Created by Administrator on 2017/6/21.
  */
 'use strict';
-angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state',function ($q,$scope,$http,$state) {
+angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state','cache',function ($q,$scope,$http,$state,cache) {
 
+    // cache.put('to','day');
+    cache.remove('to');
     $scope.isLogin = false;
 
     function getPosition() {
@@ -11,7 +13,6 @@ angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state',
 
         $http.get('data/position.json?id='+$state.params.id).success(function (res) {
             $scope.position = res;
-            console.log($scope.position);
             def.resolve(res);
         }).error(function (err) {
             def.reject(err)
@@ -24,7 +25,6 @@ angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state',
 
     function getCompany(id) {
         $http.get('data/company.json?id=' + id).success(function (res) {
-            console.log(res);
             $scope.company = res;
         })
     }

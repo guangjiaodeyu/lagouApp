@@ -19,6 +19,12 @@ angular.module('app')
             url:'/company/:id',
             templateUrl:'view/template/companyDetail.html',
             controller:'companyDetailCtrl'
+        }).state('search',{
+            url:'/search',
+            templateUrl:'view/search.html',
+            controller:'searchCtrl'
         });
+
+
         $urlRouterProvider.otherwise('/main');
 }]);

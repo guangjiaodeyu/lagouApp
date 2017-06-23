@@ -1,0 +1,29 @@
+.app-tab{
+  background: @tabBgColor;
+  position: fixed;
+  .l(0);
+  .r(0);
+  .t(0);
+  margin: 0;
+  padding: 0;
+  .mt(40);
+  .fs(0);
+
+
+  ul{
+    .pl(0);
+
+    li{
+
+      width: 33.3%;
+      .fs(16);
+      .h(40);
+      .lh(40);
+      text-align: center;
+      &.active{
+        border-bottom: 2px solid @highLightColor;
+      }
+    }
+  }
+
+}
