@@ -7,6 +7,16 @@ angular.module('app')
         return {
             restrict:'A',
             replace:true,
-            templateUrl:'view/template/appTab.html'
+            templateUrl:'view/template/appTab.html',
+            scope:{
+                list:'=',
+                tabClick:'&'
+            },
+            link:function ($scope) {
+                $scope.click = function (tab) {
+                    $scope.tabId = tab.id;
+                    $scope.tabClick(tab);
+                }
+            }
         }
     }]);

@@ -1,7 +1,5 @@
 <div class="app-tab">
     <ul>
-        <li class="d-ib active">城市</li>
-        <li class="d-ib">薪资</li>
-        <li class="d-ib">公司规模</li>
+        <li ng-click="click(item)" ng-repeat="item in list" ng-bind="item.name" class="d-ib {{tabId === item.id ? 'active':''}}"></li>
     </ul>
 </div>

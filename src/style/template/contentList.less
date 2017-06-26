@@ -5,12 +5,13 @@
   .item{
     padding: 7px 3px;
     border-bottom: 1px solid @listLineColor;
+    position: relative;
+
 
     .logo{
       .w(64);
       .h(64);
-      margin-right: 7px;
-
+      .mr(7);
     }
 
     .title{
@@ -23,6 +24,15 @@
 
   }
 
-
+  .salaryName{
+    position: absolute;
+    .t(7);
+    .r(7);
+  }
+  .scaleName{
+    position: absolute;
+    .t(32);
+    .r(7);
+  }
 
 }

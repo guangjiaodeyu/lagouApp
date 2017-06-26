@@ -1,10 +1,11 @@
 <ul class="content-list" >
 
-
-    <li ui-sref="position({id:obj.id})" class="bg-w item" ng-repeat="obj in data">
+    <li ui-sref="position({id:obj.id})" class="bg-w item" ng-repeat="obj in data | filterByObj :filterObj">
         <img class="f-l logo" ng-src="{{obj.imageUrl}}" alt="">
         <h3 class="title" ng-bind="obj.job"></h3>
         <p class="text" ng-bind="obj.companyName + ' [' + obj.cityName + '] ' + obj.industryName"></p>
+        <p class="text salaryName" ng-bind="obj.salaryName"></p>
+        <p class="text scaleName" ng-bind="obj.scaleName"></p>
         <p class="text" ng-bind="obj.date"></p>
     </li>
 </ul>
