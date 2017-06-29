@@ -2,11 +2,11 @@
  * Created by Administrator on 2017/6/21.
  */
 'use strict';
-angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state','cache',function ($q,$scope,$http,$state,cache) {
+angular.module('app').controller('positionCtrl',['$q','$scope','$http','$log','$state','cache',function ($q,$scope,$http,$log,$state,cache) {
 
-    // cache.put('to','day');
-    cache.remove('to');
-    $scope.isLogin = false;
+
+    $scope.isLogin = !!cache.get('name');
+    $scope.message = $scope.isLogin ? '投个简历':'请登录';
 
     function getPosition() {
         var def = $q.defer();
@@ -14,6 +14,10 @@ angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state',
         $http.get('data/position.json?id='+$state.params.id).success(function (res) {
             $scope.position = res;
             def.resolve(res);
+
+            if (res.posted){
+                $scope.message = '已投递';
+            }
         }).error(function (err) {
             def.reject(err)
         });
@@ -33,4 +37,28 @@ angular.module('app').controller('positionCtrl',['$q','$scope','$http','$state',
     getPosition().then(function (obj) {
         getCompany(obj.companyId);
     });
+
+
+    $scope.go = function () {
+
+        if ($scope.message !== '已投递'){
+
+            if ($scope.isLogin){
+
+                $http.post('data/handle.json',{
+                    id:$scope.position.id
+                }).success(function (res) {
+                    $log.info(res);
+                    $scope.message = '已投递';
+                });
+            }else {
+                $state.go('login');
+            }
+        }
+
+    }
+
+
+
+
 }]);

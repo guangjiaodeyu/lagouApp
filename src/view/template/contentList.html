@@ -4,11 +4,11 @@
         <img class="f-l logo" ng-src="{{obj.imageUrl}}" alt="">
         <h3 class="title" ng-bind="obj.job"></h3>
         <p class="text" ng-bind="obj.companyName + ' [' + obj.cityName + '] ' + obj.industryName"></p>
-        <p class="text salaryName" ng-bind="obj.salaryName"></p>
+        <p class="text salaryName c-r" ng-bind="obj.salaryName"></p>
         <p class="text scaleName" ng-bind="obj.scaleName"></p>
         <p class="text" ng-bind="obj.date"></p>
 
-        <span ng-if="id" ng-click="$event.stopPropagation();select(obj)" class="icon {{obj.select? 'star-active':'star'}} p-ab"></span>
+        <span ng-if="isFavorite" ng-click="$event.stopPropagation();select(obj)" class="icon {{obj.select? 'star-active':'star'}} p-ab"></span>
     </li>
 </ul>
 

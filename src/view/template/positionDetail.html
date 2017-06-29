@@ -1,5 +1,5 @@
 <div app-head-bar text="'职位详情'"></div>
-<div app-position-info  pos="position" is-login="isLogin"></div>
+<div app-position-info pos="position" is-login="isLogin"></div>
 <div app-company com="company"></div>
 
 
@@ -11,4 +11,4 @@
     </pre>
 </div>
 
-<button class="bottom-btn" ng-bind="isLogin ? '投个简历':'请登录'"></button>
+<button class="bottom-btn" ng-click="go()" ng-bind="message"></button>
