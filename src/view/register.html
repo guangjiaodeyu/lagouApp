@@ -1,28 +1,28 @@
 <div class="register">
 
 
-    <form action="" class="p-ab">
+    <form action="" class="p-ab" name="form">
 
 
-        <div class="form-line">
-            <span class="account f-l"></span>
-            <input class="d-b" type="text" placeholder="输入手机号">
+        <div class="form-line p-re">
+            <span class="account icon f-l"></span>
+            <input name="phone" ng-model="user.phone" validator="required,phone" class="d-b" type="text" placeholder="输入手机号">
         </div>
 
-        <div class="form-line">
-            <span class="lock f-l"></span>
-            <input class="d-b" type="password" placeholder="设置六位以上的密码">
+        <div class="form-line p-re">
+            <span class="lock icon f-l"></span>
+            <input name="password" ng-model="user.password" validator="required,password" class="d-b" type="password" placeholder="设置六位以上的密码">
         </div>
 
-        <div class="message-wrap">
-            <input type="text" placeholder="短信验证码">
-            <span>发送消息</span>
+        <div class="message-wrap p-re">
+            <input name="code" validator="required" ng-model="user.code" type="text" placeholder="短信验证码">
+            <span class="send {{time? 'disabled':''}} p-re" ng-click="time? 1==1:send()" ng-bind="time?time:'发送消息'"></span>
         </div>
 
 
 
-        <button class="d-b">登录</button>
-        <button class="d-b">注册</button>
+        <button class="d-b" ui-sref="login">登录</button>
+        <button class="d-b" validation-submit="form" ng-click="submit()">注册</button>
 
 
 

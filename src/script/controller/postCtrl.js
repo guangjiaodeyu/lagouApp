@@ -18,5 +18,29 @@ angular.module('app')
             id:'failure',
             name:'不合适'
         }
-    ]
+    ];
+
+    var tabId = 'all';
+
+    $http.get('data/myPost.json').success(function (res) {
+        $scope.positionList = res;
+    });
+
+    $scope.filterObj = {};
+
+    $scope.tClick = function (id,name) {
+        switch (id){
+            case 'all':
+                delete $scope.filterObj.state;
+                break;
+            case 'pass':
+                $scope.filterObj.state = '1';
+                break;
+            case 'failure':
+                $scope.filterObj.state = '-1';
+                break;
+        }
+    }
+
+
 }]);

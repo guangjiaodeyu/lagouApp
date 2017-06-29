@@ -17,15 +17,30 @@
     top: 30%;
     transform: translate(-50%,-50%);
 
+    .ng-invalid{
+
+      &+span{
+        //width: 100%;  //宽度不能是100%否则再次输入的时候会盖住输入框
+        text-align: right;
+        position: absolute;
+        .r(0);
+        .b(-8);
+        color: @dengerBgC;
+
+      }
+    }
+
+
 
     .form-line{
       .h(40);
+
 
       &:first-of-type{
         border-bottom: 1px solid @defaultColor;
       }
 
-      span{
+      span.icon{
         .w(50);
         .h(40);
         background-repeat:no-repeat;
@@ -55,6 +70,8 @@
         &::-webkit-input-placeholder{
           color: @defaultColor;
         }
+
+
       }
     }
 
@@ -75,17 +92,33 @@
         &::-webkit-input-placeholder{
           color: @defaultColor;
         }
+        &.ng-invalid{
+
+          &+span{
+            .t(-20);
+
+          }
+        }
       }
 
-      span{
+      .send{
         text-align: center;
         display: inline-block;
-        width: 100px;
-        .h(30);
-        .lh(30);
+        .w(100);
+        .h(20);
+        .lh(20);
+        .t(10);
         border: 1px solid @headBgColor;
         background-color: @registerBgC;
         color: @headBgColor;
+        &.disabled{
+          background-color: @muteColor;
+          color: @defaultColor;
+          border: 1px solid @defaultColor;
+          .w(50);
+          .ml(50);
+        }
+
       }
     }
 

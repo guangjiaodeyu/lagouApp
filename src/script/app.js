@@ -3,4 +3,4 @@
  */
 'use strict';
 
-var app = angular.module('app',['ui.router','ngCookies']);
+var app = angular.module('app',['ui.router','ngCookies','validation']);

@@ -25,7 +25,7 @@
         border-bottom: 1px solid @defaultColor;
       }
 
-      span{
+      span.icon{
         .w(50);
         .h(40);
         background-repeat:no-repeat;
@@ -55,6 +55,17 @@
         box-sizing: border-box;
         &::-webkit-input-placeholder{
           color: @defaultColor;
+        }
+        &.ng-invalid{
+
+          &+span{
+            text-align: right;
+            position: absolute;
+            .r(0);
+            .b(-8);
+            color: @dengerBgC;
+
+          }
         }
       }
     }
